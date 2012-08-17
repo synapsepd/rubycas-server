@@ -14,4 +14,5 @@ gem "activesupport"
 gem "sinatra"
 gem "sinatra-r18n"
 gem "crypt-isaac"
+gem "sqlite3"
 

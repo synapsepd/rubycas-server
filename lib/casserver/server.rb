@@ -469,7 +469,6 @@ module CASServer
 
           # 3.6 (ticket-granting cookie)
           tgt = generate_ticket_granting_ticket(@username, extra_attributes)
-          $LOG.debug("Extra attributes are " + extra_attributes)
           response.set_cookie('tgt', tgt.to_s)
 
           $LOG.debug("Ticket granting cookie '#{tgt.inspect}' granted to #{@username.inspect}")
