@@ -70,17 +70,17 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  activerecord (>= 2.3.12, < 3.1)
+  activerecord
   activerecord-mysql2-adapter
-  activesupport (>= 2.3.12, < 3.1)
+  activesupport
   capistrano
   capistrano-ext
   capistrano_colors
-  crypt-isaac (~> 0.9.1)
+  crypt-isaac
   mysql2
   net-ldap
   passenger
   rubycas-server
   rvm-capistrano
-  sinatra (~> 1.0)
+  sinatra
   sinatra-r18n
