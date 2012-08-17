@@ -8,7 +8,7 @@ gem 'rubycas-server'
 gem 'passenger'
 gem 'mysql2'
 gem 'activerecord-mysql2-adapter'
-gem 'net-ldap'
+gem 'net-ldap', "~>0.3.0"
 gem "activerecord"
 gem "activesupport"
 gem "sinatra"
