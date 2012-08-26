@@ -11,7 +11,7 @@ before 'deploy:setup', 'rvm:create_gemset' # only create gemset
 set :stages, %w(development staging production)
 set :scm, :git
 set :deploy_via, :remote_cache
-set :user, 'cas-server-www'
+set :user, 'rubycas-server'
 set :use_sudo, false
 set :ssh_options, { :forward_agent => true }
 default_run_options[:pty] = true
