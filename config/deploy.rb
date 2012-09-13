@@ -2,13 +2,7 @@ require "bundler/capistrano"
 require "capistrano/ext/multistage"
 require "rvm/capistrano"
 
-set :rvm_ruby_string, ENV['GEM_HOME'].gsub(/.*\//,"")
-
-before 'deploy:setup', 'rvm:install_rvm'   # install RVM
-before 'deploy:setup', 'rvm:install_ruby'  # install Ruby and create gemset, or:
-before 'deploy:setup', 'rvm:create_gemset' # only create gemset
-
-set :stages, %w(development staging production)
+set :stages, %w(development production)
 set :scm, :git
 set :deploy_via, :remote_cache
 set :user, 'rubycas-server'

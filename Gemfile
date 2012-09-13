@@ -16,3 +16,5 @@ gem "sinatra-r18n"
 gem "crypt-isaac"
 gem "sqlite3"
 
+gem 'unicorn'
+
