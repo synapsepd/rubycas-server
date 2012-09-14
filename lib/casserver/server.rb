@@ -1,13 +1,17 @@
+require 'less'
 require 'sinatra/base'
+
 require 'casserver/localization'
 require 'casserver/utils'
 require 'casserver/cas'
+
 
 require 'logger'
 $LOG ||= Logger.new(STDOUT)
 
 module CASServer
   class Server < Sinatra::Base
+
     if ENV['CONFIG_FILE']
       CONFIG_FILE = ENV['CONFIG_FILE']
     elsif !(c_file = File.dirname(__FILE__) + "/../../config.yml").nil? && File.exist?(c_file)
@@ -27,6 +31,8 @@ module CASServer
     set :app_file, __FILE__
     set( use_public_folder? ? :public_folder : :public, # Workaround for differences in Sinatra versions.
          Proc.new { settings.config[:public_dir] || File.join(root, "..", "..", "public") } )
+
+
 
     config = HashWithIndifferentAccess.new(
       :maximum_unused_login_ticket_lifetime => 5.minutes,
@@ -328,6 +334,7 @@ module CASServer
       if tgt and !tgt_error
         @message = {:type => 'notice',
           :message => t.notice.logged_in_as(tgt.username)}
+        @username = tgt.username
       elsif tgt_error
         $LOG.debug("Ticket granting cookie could not be validated: #{tgt_error}")
       elsif !tgt
@@ -335,7 +342,7 @@ module CASServer
       end
 
       if params['redirection_loop_intercepted']
-        @message = {:type => 'mistake',
+        @message = {:type => 'alert-error',
           :message => t.error.unable_to_authenticate}
       end
 
@@ -357,14 +364,14 @@ module CASServer
           end
         elsif @gateway
             $LOG.error("This is a gateway request but no service parameter was given!")
-            @message = {:type => 'mistake',
+            @message = {:type => 'alert-error',
               :message => t.error.no_service_parameter_given}
         else
           $LOG.info("Proceeding with CAS login without a target service.")
         end
       rescue URI::InvalidURIError
         $LOG.error("The service '#{@service}' is not a valid URI!")
-        @message = {:type => 'mistake',
+        @message = {:type => 'alert-error',
           :message => t.error.invalid_target_service}
       end
 
@@ -423,7 +430,7 @@ module CASServer
       end
 
       if error = validate_login_ticket(@lt)
-        @message = {:type => 'mistake', :message => error}
+        @message = {:type => 'alert-error', :message => error}
         # generate another login ticket to allow for re-submitting the form
         @lt = generate_login_ticket.ticket
         status 500
@@ -475,7 +482,7 @@ module CASServer
 
           if @service.blank?
             $LOG.info("Successfully authenticated user '#{@username}' at '#{tgt.client_hostname}'. No service param was given, so we will not redirect.")
-            @message = {:type => 'confirmation', :message => t.notice.success_logged_in}
+            @message = {:type => 'alert-success', :message => t.notice.success_logged_in}
           else
             @st = generate_service_ticket(@service, @username, tgt)
 
@@ -487,21 +494,21 @@ module CASServer
             rescue URI::InvalidURIError
               $LOG.error("The service '#{@service}' is not a valid URI!")
               @message = {
-                :type => 'mistake',
+                :type => 'alert-error',
                 :message => t.error.invalid_target_service
               }
             end
           end
         else
           $LOG.warn("Invalid credentials given for user '#{@username}'")
-          @message = {:type => 'mistake', :message => t.error.incorrect_username_or_password}
+          @message = {:type => 'alert-error', :message => t.error.incorrect_username_or_password}
           status 401
         end
       rescue CASServer::AuthenticatorError => e
         $LOG.error(e)
         # generate another login ticket to allow for re-submitting the form
         @lt = generate_login_ticket.ticket
-        @message = {:type => 'mistake', :message => e.to_s}
+        @message = {:type => 'alert-error', :message => e.to_s}
         status 401
       end
 
@@ -560,7 +567,7 @@ module CASServer
         $LOG.warn("User tried to log out without a valid ticket-granting ticket.")
       end
 
-      @message = {:type => 'confirmation', :message => t.notice.success_logged_out}
+      @message = {:type => 'alert-success', :message => t.notice.success_logged_out}
 
       @message[:message] += t.notice.click_to_continue if @continue_url
 

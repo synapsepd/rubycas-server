@@ -1,0 +1,66 @@
+// skynet-global.less
+// 
+
+@import 'skynet-variables';
+
+
+body {
+	font-family: 'GothamHTF';
+	color:@k90;
+	font-size:14px;
+	line-height:18px;
+	margin-bottom:200px;
+}
+
+
+
+// HORIZONTAL RULE
+hr {
+	border:0 none;
+	height:4px;
+	width:100%;
+	background-color:@k30;
+}
+
+// WELLS
+
+.well {
+	border-radius:@wellBorderRadius;
+	background-image:none;
+	background-color:@wellBackgroundColor;
+	box-shadow:0px 0px 0px 0px
+	border:0 none;
+}
+
+
+// -----------------------------------------------
+// TYPOGRAPHY RULES
+
+// Selected text background
+::selection {
+	background:@k15;
+}
+
+
+h1, h2, h3, h4, h5, h6 {
+	margin-top:0px;	// Axe that top margin
+	// Reset line-heights somehow, to restore vertical alignments?
+}
+
+// Add a horizontal rule under a headline
+.hr {
+	border-bottom:4px solid @k30;
+}
+
+// Alignment classes
+.txt-left {	text-align:left; }
+.txt-center { text-align:center; }
+.txt-right { text-align:right; }
+
+
+// Link styling
+a {
+	color:@k75;
+	&:hover { color:@k90;	}
+	&:active { color:@k45; }
+}

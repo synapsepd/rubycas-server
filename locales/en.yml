@@ -18,9 +18,9 @@ notice:
   please_wait: "Please wait..."
 
 label:
-  username: "Username"
-  password: "Password"
+  username: "username"
+  password: "password"
   central_login_title: "Central Login"
 
 button:
-  login: "LOGIN"
+  login: "PARTY"

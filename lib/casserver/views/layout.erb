@@ -7,12 +7,33 @@
 
   <head>
     <title><%= escape_html @organization %><%= t.label.central_login_title %></title>
-    <link rel="stylesheet" type="text/css" href="<%= escape_html @uri_path %>/themes/cas.css" />
-    <link rel="stylesheet" type="text/css" href="<%= escape_html @uri_path %>/themes/<%= escape_html @theme %>/theme.css" />
     <link rel="icon" type="image/png" href="<%= escape_html @uri_path %>/themes/<%= escape_html @theme %>/favicon.png" />
+    <link href="<%= escape_html @uri_path %>/app.css" media="screen" rel="stylesheet" type="text/css">
+
   </head>
 
   <body onload="if (document.getElementById('username')) document.getElementById('username').focus()">
-    <%= yield %>
+
+    <div id="hdr" class="container">
+
+      <a id="logo" class="pull-left" href="#">
+        <div id="logo_box" class="pull-left"></div>
+        <span id="logo_text" class="pull-left visible-desktop">Synapse Central Login</span>
+      </a>
+
+      <a id="user_box" class="pull-right" href="#"><i class="icon-chevron-down"></i></a>
+      <span id="user_text" class="pull-right visible-desktop">
+        <% if @username != "" %>
+          You are logged in as <strong><%= @username %></strong>
+        <% else %>
+          You’re not logged in yet. That’s why you’re here...
+        <% end %>
+      </span>
+
+    </div><!-- /#hdr -->
+
+    <div class="container">
+      <%= yield %>
+    </div>
   </body>
 </html>
