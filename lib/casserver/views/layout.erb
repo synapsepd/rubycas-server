@@ -23,8 +23,8 @@
 
       <a id="user_box" class="pull-right" href="#"><i class="icon-chevron-down"></i></a>
       <span id="user_text" class="pull-right visible-desktop">
-        <% if @username != "" %>
-          You are logged in as <strong><%= @username %></strong>
+        <% if @message[:type] == 'success'|| @message[:type] == 'notice' %>
+          You are logged in as <strong><%= @full_name %></strong>
         <% else %>
           You’re not logged in yet. That’s why you’re here...
         <% end %>

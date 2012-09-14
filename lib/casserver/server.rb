@@ -334,7 +334,11 @@ module CASServer
       if tgt and !tgt_error
         @message = {:type => 'notice',
           :message => t.notice.logged_in_as(tgt.username)}
-        @username = tgt.username
+        if tgt.extra_attributes.is_a?(Hash)
+          @full_name = tgt.extra_attributes['name'].first
+        else
+          @full_name = nil
+        end
       elsif tgt_error
         $LOG.debug("Ticket granting cookie could not be validated: #{tgt_error}")
       elsif !tgt
@@ -572,6 +576,7 @@ module CASServer
       @message[:message] += t.notice.click_to_continue if @continue_url
 
       @lt = generate_login_ticket
+      @full_name = nil
 
       if @gateway && @service
         redirect @service, 303
