@@ -1,7 +1,7 @@
 require "bundler/capistrano"
 require "capistrano/ext/multistage"
 require "rvm/capistrano"
-require 'capistrano-unicorn'
+
 
 set :rvm_ruby_string, ENV['GEM_HOME'].gsub(/.*\//,"")
 before 'deploy:setup', 'rvm:install_rvm'   # install RVM
