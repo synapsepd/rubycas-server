@@ -19,4 +19,6 @@ gem "crypt-isaac"
 gem "sqlite3"
 
 gem 'unicorn'
-
+group :development do
+  gem 'capistrano-unicorn', :require => false
+end
