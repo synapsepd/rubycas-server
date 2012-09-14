@@ -17,7 +17,7 @@ set :ssh_options, { :forward_agent => true }
 default_run_options[:pty] = true
 
 set :application, "rubycas-server"
-set :repository,  "git@github.com:synapsepd/rubycas-server.git"
+set :repository,  "git@gitlab.synapse.com:rubycas-server.git"
 
 namespace :deploy do
   task :start do ; end
