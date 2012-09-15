@@ -23,4 +23,17 @@ label:
   central_login_title: "Central Login"
 
 button:
-  login: "PARTY"
+  login:
+    -  "PARTY"
+    -  "ROCK ON"
+    -  "BOTTOMS UP"
+    -  "SHAKE THAT THANG"
+    -  "POUND IT"
+    -  "SMASH"
+    -  "CRUSH IT"
+    -  "THUMBS UP"
+    -  "HANG LOOSE"
+    -  "OPEN SESAME"
+    -  "ABRACADABRA"
+    -  "WALK IT OFF"
+    -  "END HUMANITY"
