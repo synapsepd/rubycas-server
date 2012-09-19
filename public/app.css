@@ -9597,6 +9597,16 @@ body {
   -moz-border-radius: 0px;
   border-radius: 0px;
 }
+#inner input[type="text"]::-webkit-input-placeholder,
+#inner input[type="password"]::-webkit-input-placeholder {
+  color: #dcddde;
+  text-align: left;
+}
+#inner input[type="text"]:-moz-placeholder,
+#inner input[type="password"]:-moz-placeholder {
+  color: #dcddde;
+  text-align: left;
+}
 #inner button.btn.btn-large,
 #inner input[type="submit"].btn.btn-large {
   width: 100%;
