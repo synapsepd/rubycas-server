@@ -12,6 +12,7 @@ Vagrant::Config.run do |config|
   config.vm.share_folder "www", "/home/rubycas-server/rubycas-server/current", ".", :extra => 'dmode=777,fmode=777'
   config.vm.share_folder "puppet_files", "/etc/puppet/files", "/etc/puppet/files"
   config.vm.box = "oneiric"
+  config.vm.box_url = "https://s3-us-west-2.amazonaws.com/synapsevagrantboxes/oneiric.box"
 
   config.vm.provision :puppet do |puppet|
     puppet.module_path = ["/etc/puppet/modules", "/etc/puppet/manifests/classes"]
