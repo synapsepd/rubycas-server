@@ -16,9 +16,8 @@ gem 'less'
 gem "therubyracer"
 gem "sinatra-r18n"
 gem "crypt-isaac"
-gem "sqlite3"
-
 gem 'unicorn'
 group :development do
   gem 'capistrano-unicorn', :require => false
+  gem 'foreman'
 end

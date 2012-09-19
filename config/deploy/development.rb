@@ -1,4 +1,5 @@
 set :rails_env, "development"
-set :deploy_to, "/home/rubycas-server/#{stage}"
-server 'core-intranet-dev-1.synapsedev.com', :app, :web, :db, :primary => true
+set :deploy_to, "/home/vagrant/rubycas-server"
+server '10.11.12.13', :app, :web, :db, :primary => true
 set :branch, "master"
+set :user, 'vagrant'

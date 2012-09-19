@@ -22,3 +22,7 @@ See the LICENSE file bundled with the official RubyCAS-Server distribution for d
 ## Compiling LESS assets
 
 `lessc app/css/bootstrap.less > public/app.css`
+
+## Getting Started
+
+# Dependencies
