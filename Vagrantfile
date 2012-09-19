@@ -9,8 +9,8 @@ Vagrant::Config.run do |config|
   config.ssh.username = "vagrant"
   # config.hosts.names = ["synapse.dev", "www.synape.dev"]
 
-  config.vm.share_folder "www", "/home/rubycas-server/rubycas-server/current", ".", :extra => 'dmode=777,fmode=777'
-  config.vm.share_folder "puppet_files", "/etc/puppet/files", "/etc/puppet/files"
+  config.vm.share_folder "www", "/home/vagrant/rubycas-server/current", ".", :extra => 'dmode=777,fmode=777'
+  config.vm.share_folder "puppet_files", "/etc/puppet/files", "/etc/pu ppet/files"
   config.vm.box = "oneiric"
   config.vm.box_url = "https://s3-us-west-2.amazonaws.com/synapsevagrantboxes/oneiric.box"
 
