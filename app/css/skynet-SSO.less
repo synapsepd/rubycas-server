@@ -1,0 +1,75 @@
+// skynet-SSO.less
+// LESS for SkyNet Single Sign-On (SSO) page
+
+// Darken the top grey bar (overriding the style set in skynet-hdr.less)
+body {
+	background-color: @k15;
+	border-top:solid 4px @k45;
+	padding-top:19px;
+	@media (max-width:@tabletMaxWidth) { padding-top:14px; }	// Decrease top margin for tablet display
+	@media (max-width:@mobileMaxWidth) { border-top:0 none; padding-top:0px; }		// No grey bar for smartphones
+}
+
+// HDR
+#hdr {
+	margin-bottom:40px;
+	
+	// Header Logo
+	#logo_box {
+		margin-right:15px;
+	}
+}
+
+
+// #inner (wrapper for shit)
+
+#inner {
+    padding-top: 100px;
+    // ADJUST TOP-PADDING FOR RESPONSIVE
+    
+    // Adjust width for sizing
+    width: 50%;
+    @media (max-width:@tabletMaxWidth) { width:70%; }
+    @media (max-width:@mobileMaxWidth) { width:100%; padding:0px 10px; }
+    
+    
+    margin: 0px auto;
+    
+    // Username and Password inputs
+    input[type="text"], input[type="password"] {
+      width: 100%;
+      
+      font-size: 24px;
+      text-align: center;
+      height: 50px;
+      padding-top: 10px;
+      padding-left: 10px;
+      border: 0 none;
+      .border-radius(0px);
+    }
+    
+    // Submit button
+    button.btn.btn-large, input[type="submit"].btn.btn-large {
+      width: 100%;
+      
+      .border-radius(0px);
+      height: 50px;
+      border: 0 none;
+      background-image: none;
+      background-color: @red;
+      
+      margin-top: 10px;
+      font-size: 20px;
+      font-weight: 500;
+      text-transform:uppercase;
+    }
+    
+    
+    
+    
+    // Alert, if the password is incorrect, or other stuff
+    .alert {
+      .border-radius(0px);
+      padding: 10px;
+    }   
+}

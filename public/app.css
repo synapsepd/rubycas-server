@@ -9543,52 +9543,84 @@ h2#pg_title {
   font-weight: bold;
   margin: 0 0 40px 0;
 }
-/*
-	@resp-desktop:"@media (min-width: 980px)";
-	@resp-tablet:"@media (min-width: 768px) and (max-width: 979px)";
-	@resp-mobile:"@media (max-width: 767px)";
-	*/
-#wlan_pw {
-  font-weight: bold;
-  color: #ee3124;
-}
 body {
   background-color: #dcddde;
+  border-top: solid 4px #9d9fa2;
+  padding-top: 19px;
 }
-input[type="text"],
-input[type="password"] {
-  width: 470px;
-  font-size: 24px;
-  height: 50px;
-  padding-top: 10px;
-  padding-left: 10px;
-  border: 0;
-  -webkit-border-radius: 0;
-  -moz-border-radius: 0;
-  border-radius: 0;
+@media (max-width: 979px) {
+  body {
+    padding-top: 14px;
+  }
 }
-button.btn.btn-large,
-input[type="submit"].btn.btn-large {
-  -webkit-border-radius: 0;
-  -moz-border-radius: 0;
-  border-radius: 0;
-  height: 50px;
-  border: 0;
-  background-image: none;
-  background-color: #ee3124;
-  width: 470px;
-  margin-top: 10px;
-  font-size: 20px;
-  font-weight: 500;
+@media (max-width: 768px) {
+  body {
+    border-top: 0 none;
+    padding-top: 0px;
+  }
+}
+#hdr {
+  margin-bottom: 40px;
+}
+#hdr #logo_box {
+  margin-right: 15px;
 }
 #inner {
   padding-top: 100px;
   width: 50%;
   margin: 0px auto;
 }
-.alert {
-  -webkit-border-radius: 0;
-  -moz-border-radius: 0;
-  border-radius: 0;
+@media (max-width: 979px) {
+  #inner {
+    width: 70%;
+  }
+}
+@media (max-width: 768px) {
+  #inner {
+    width: 100%;
+    padding: 0px 10px;
+  }
+}
+#inner input[type="text"],
+#inner input[type="password"] {
+  width: 100%;
+  font-size: 24px;
+  text-align: center;
+  height: 50px;
+  padding-top: 10px;
+  padding-left: 10px;
+  border: 0 none;
+  -webkit-border-radius: 0px;
+  -moz-border-radius: 0px;
+  border-radius: 0px;
+  -webkit-border-radius: 0px;
+  -moz-border-radius: 0px;
+  border-radius: 0px;
+}
+#inner button.btn.btn-large,
+#inner input[type="submit"].btn.btn-large {
+  width: 100%;
+  -webkit-border-radius: 0px;
+  -moz-border-radius: 0px;
+  border-radius: 0px;
+  -webkit-border-radius: 0px;
+  -moz-border-radius: 0px;
+  border-radius: 0px;
+  height: 50px;
+  border: 0 none;
+  background-image: none;
+  background-color: #ee3124;
+  margin-top: 10px;
+  font-size: 20px;
+  font-weight: 500;
+  text-transform: uppercase;
+}
+#inner .alert {
+  -webkit-border-radius: 0px;
+  -moz-border-radius: 0px;
+  border-radius: 0px;
+  -webkit-border-radius: 0px;
+  -moz-border-radius: 0px;
+  border-radius: 0px;
   padding: 10px;
 }
