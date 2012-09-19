@@ -1,7 +1,10 @@
 require "bundler/capistrano"
 require "capistrano/ext/multistage"
-set :default_environment, { 'PATH' => "/home/rubycas-server/.rbenv/shims:/home/rubycas-server/.rbenv/bin:$PATH" }
 set :bundle_flags, "--deployment --quiet --binstubs --shebang ruby-local-exec"
+
+set :default_environment, {
+  'PATH' => "/home/rubycas/.rbenv/shims:/home/rubycas/.rbenv/bin:$PATH"
+}
 
 set :application, 'rubycas-server'
 set :stages, %w(development production)
@@ -14,4 +17,4 @@ default_run_options[:pty] = true
 
 set :application, "rubycas-server"
 set :repository,  "git@gitlab.synapse.com:rubycas-server.git"
-require 'capistrano-unicorn'
+# require 'capistrano-unicorn'

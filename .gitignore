@@ -16,3 +16,4 @@ custom/*
 .irbrc_history
 resources/dev
 .bundle
+/tmp/*
