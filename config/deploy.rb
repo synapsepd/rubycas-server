@@ -18,3 +18,9 @@ default_run_options[:pty] = true
 set :application, "rubycas-server"
 set :repository,  "git@gitlab.synapse.com:rubycas-server.git"
 # require 'capistrano-unicorn'
+
+namespace :deploy do
+  task :restart, :roles => :web do
+    sudo "sudo service rubycas-server restart"
+  end
+end
