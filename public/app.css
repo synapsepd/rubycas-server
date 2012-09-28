@@ -9465,6 +9465,12 @@ body {
     padding-right: 30px;
   }
 }
+@media (max-width: 768px) {
+  #hdr #navbar_bound {
+    padding-left: 0px;
+    padding-right: 0px;
+  }
+}
 #hdr #navbar_bound #hdr_navbar {
   width: 100%;
   min-height: 30px;
@@ -9578,17 +9584,16 @@ body {
 @media (max-width: 768px) {
   #inner {
     width: 100%;
-    padding: 0px 10px;
+    padding: 0px;
   }
 }
 #inner input[type="text"],
 #inner input[type="password"] {
   width: 100%;
   font-size: 24px;
-  text-align: center;
+  text-align: left;
   height: 50px;
   padding-top: 10px;
-  padding-left: 10px;
   border: 0 none;
   -webkit-border-radius: 0px;
   -moz-border-radius: 0px;
