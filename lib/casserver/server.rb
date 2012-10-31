@@ -1,16 +1,40 @@
 require 'less'
 require 'sinatra/base'
+require 'sinatra/assetpack'
 
 require 'casserver/localization'
 require 'casserver/utils'
 require 'casserver/cas'
 
-
-require 'logger'
-$LOG ||= Logger.new(STDOUT)
+require 'syslogger'
+$LOG ||= SyslogLogger.new("sso")
 
 module CASServer
   class Server < Sinatra::Base
+    set :root, File.dirname(__FILE__)
+    Less.paths <<  "#{Server.root}/app/css"
+    register Sinatra::AssetPack
+
+    assets do
+      clear_ignores!
+      # serve '/js',     from: 'app/js'        # Optional
+      # serve '/css',    from: 'app/css'       # Optional
+      # serve '/images', from: 'app/images'    # Optional
+
+      # The second parameter defines where the compressed version will be served.
+      # (Note: that parameter is optional, AssetPack will figure it out.)
+      js :main, '/js/main.js', [
+        '/js/vendor/jquery*.js',
+        '/js/vendor/bootstrap*.js',
+        '/js/app.js'
+      ]
+
+      css :bootstrap, [
+        '/css/bootstrap.css'
+      ]
+      prebuild true
+    end
+
 
     if ENV['CONFIG_FILE']
       CONFIG_FILE = ENV['CONFIG_FILE']

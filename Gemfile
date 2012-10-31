@@ -15,6 +15,7 @@ gem 'sinatra-assetpack', :require => 'sinatra/assetpack'
 gem 'less'
 gem "therubyracer"
 gem "sinatra-r18n"
+gem "syslogger"
 gem "crypt-isaac"
 gem 'unicorn'
 group :development do
