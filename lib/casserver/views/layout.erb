@@ -21,15 +21,6 @@
         <span id="logo_text" class="pull-left">Synapse Central Login</span>
       </a>
 
-      <a id="user_box" class="pull-right" href="#"><i class="icon-chevron-down"></i></a>
-      <span id="user_text" class="pull-right visible-desktop">
-        <% if @message && (@message[:type] == 'success'|| @message[:type] == 'notice') %>
-          You are logged in as <strong><%= @full_name %></strong>
-        <% else %>
-          You’re not logged in yet. That’s why you’re here...
-        <% end %>
-      </span>
-
     </div><!-- /#hdr -->
 
     <div class="container">
