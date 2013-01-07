@@ -2,6 +2,7 @@ require 'uri'
 require 'net/https'
 
 require 'casserver/model'
+require 'casserver/core_ext'
 
 # Encapsulates CAS functionality. This module is meant to be included in
 # the CASServer::Controllers module.
@@ -12,7 +13,7 @@ module CASServer::CAS
   def generate_login_ticket
     # 3.5 (login ticket)
     lt = LoginTicket.new
-    lt.ticket = "LT-" + CASServer::Utils.random_string
+    lt.ticket = "LT-" + String.random
 
     lt.client_hostname = @env['HTTP_X_FORWARDED_FOR'] || @env['REMOTE_HOST'] || @env['REMOTE_ADDR']
     lt.save!
@@ -30,13 +31,14 @@ module CASServer::CAS
   def generate_ticket_granting_ticket(username, extra_attributes = {})
     # 3.6 (ticket granting cookie/ticket)
     tgt = TicketGrantingTicket.new
-    tgt.ticket = "TGC-" + CASServer::Utils.random_string
+    tgt.ticket = "TGC-" + String.random
     tgt.username = username
     tgt.extra_attributes = extra_attributes
+    tgt.expires = (Time.now + 2.weeks).strftime("%a, %d-%b-%Y %H:%M:%S GMT")
     tgt.client_hostname = @env['HTTP_X_FORWARDED_FOR'] || @env['REMOTE_HOST'] || @env['REMOTE_ADDR']
     tgt.save!
     $LOG.debug("Generated ticket granting ticket '#{tgt.ticket}' for user" +
-      " '#{tgt.username}' at '#{tgt.client_hostname}'" +
+      " '#{tgt.username}' at '#{tgt.client_hostname}' with expiration of '#{tgt.expires}'" +
       (extra_attributes.blank? ? "" : " with extra attributes #{extra_attributes.inspect}"))
     tgt
   end
@@ -44,7 +46,7 @@ module CASServer::CAS
   def generate_service_ticket(service, username, tgt)
     # 3.1 (service ticket)
     st = ServiceTicket.new
-    st.ticket = "ST-" + CASServer::Utils.random_string
+    st.ticket = "ST-" + String.random
     st.service = service
     st.username = username
     st.granted_by_tgt_id = tgt.id
@@ -58,11 +60,11 @@ module CASServer::CAS
   def generate_proxy_ticket(target_service, pgt)
     # 3.2 (proxy ticket)
     pt = ProxyTicket.new
-    pt.ticket = "PT-" + CASServer::Utils.random_string
+    pt.ticket = "PT-" + String.random
     pt.service = target_service
     pt.username = pgt.service_ticket.username
     pt.granted_by_pgt_id = pgt.id
-    pt.granted_by_tgt_id = pgt.service_ticket.granted_by_tgt.id
+    pt.granted_by_tgt_id = pgt.service_ticket.granted_by_tgt_id
     pt.client_hostname = @env['HTTP_X_FORWARDED_FOR'] || @env['REMOTE_HOST'] || @env['REMOTE_ADDR']
     pt.save!
     $LOG.debug("Generated proxy ticket '#{pt.ticket}' for target service '#{pt.service}'" +
@@ -86,10 +88,10 @@ module CASServer::CAS
     https.start do |conn|
       path = uri.path.empty? ? '/' : uri.path
       path += '?' + uri.query unless (uri.query.nil? || uri.query.empty?)
-      
+
       pgt = ProxyGrantingTicket.new
-      pgt.ticket = "PGT-" + CASServer::Utils.random_string(60)
-      pgt.iou = "PGTIOU-" + CASServer::Utils.random_string(57)
+      pgt.ticket = "PGT-" + String.random(60)
+      pgt.iou = "PGTIOU-" + String.random(57)
       pgt.service_ticket_id = st.id
       pgt.client_hostname = @env['HTTP_X_FORWARDED_FOR'] || @env['REMOTE_HOST'] || @env['REMOTE_ADDR']
 
@@ -101,7 +103,7 @@ module CASServer::CAS
       response = conn.request_get(path)
       # TODO: follow redirects... 2.5.4 says that redirects MAY be followed
       # NOTE: The following response codes are valid according to the JA-SIG implementation even without following redirects
-      
+
       if %w(200 202 301 302 304).include?(response.code)
         # 3.4 (proxy-granting ticket IOU)
         pgt.save!
@@ -243,18 +245,18 @@ module CASServer::CAS
     uri = URI.parse(st.service)
     uri.path = '/' if uri.path.empty?
     time = Time.now
-    rand = CASServer::Utils.random_string
+    rand = String.random
     path = uri.path
     req = Net::HTTP::Post.new(path)
-    req.set_form_data('logoutRequest' => %{<samlp:LogoutRequest ID="#{rand}" Version="2.0" IssueInstant="#{time.rfc2822}">
+    req.set_form_data('logoutRequest' => %{<samlp:LogoutRequest xmlns:samlp="urn:oasis:names:tc:SAML:2.0:protocol" xmlns:saml="urn:oasis:names:tc:SAML:2.0:assertion" ID="#{rand}" Version="2.0" IssueInstant="#{time.rfc2822}">
  <saml:NameID></saml:NameID>
  <samlp:SessionIndex>#{st.ticket}</samlp:SessionIndex>
  </samlp:LogoutRequest>})
- 
+
     begin
       http = Net::HTTP.new(uri.host, uri.port)
       http.use_ssl = true if uri.scheme =='https'
-      
+
       http.start do |conn|
         response = conn.request(req)
         if response.kind_of? Net::HTTPSuccess

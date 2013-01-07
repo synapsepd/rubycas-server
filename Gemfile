@@ -3,11 +3,10 @@ source "http://rubygems.org"
 gem 'capistrano'
 gem 'capistrano-ext'
 gem 'capistrano_colors'
-gem 'rvm-capistrano'
+
 gem 'rubycas-server'
-gem 'mysql2'
+gem "mysql2"
 gem 'activerecord-mysql2-adapter'
-gem 'net-ldap', "~>0.3.0"
 gem "activerecord"
 gem "activesupport"
 gem "sinatra"
@@ -21,4 +20,13 @@ gem 'unicorn'
 group :development do
   gem 'capistrano-unicorn', :require => false
   gem 'foreman'
+end
+
+# Gems for authenticators
+group :ldap do
+    gem "net-ldap", "~> 0.1.1"
+end
+
+group :active_resource do
+  gem "activeresource", ">= 2.3.12", "< 4.0"
 end

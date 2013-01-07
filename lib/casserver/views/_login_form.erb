@@ -1,14 +1,18 @@
 <%# coding: UTF-8 -%>
 <form method="post" action="<%= @form_action || "login" %>" id="login-form" class="form-vertical"
       onsubmit="submitbutton = document.getElementById('login-submit'); submitbutton.value='<%= t.notice.please_wait %>'; submitbutton.disabled=true; return true;">
-        <input type="text" id="username" name="username" class="input-sso"
-               size="32" tabindex="1" accesskey="u" placeholder="<%= t.label.username %>" />
-        </br>
-        <input type="password" id="password" name="password" class="input-xlarge"
-               size="32" tabindex="2" accesskey="p" autocomplete="off" placeholder="<%= t.label.password %>" />
+        <div class="control-group">
+          <label class="control-label" for="username">Username</label>
+          <input type="text" id="username" name="username" class="span4"
+               tabindex="1" accesskey="u" placeholder="<%= t.label.username %>" />
+        </div>
+        <div class="control-group">
+          <label class="control-label" for="password">Password</label>
+          <input type="password" id="password" name="password" class="span4"
+               tabindex="2" accesskey="p" autocomplete="off" placeholder="<%= t.label.password %>" />
+        </div>
         <input type="hidden" id="lt" name="lt" value="<%= escape_html @lt %>" />
         <input type="hidden" id="service" name="service" value="<%= escape_html @service %>" />
-        </br>
-        <input type="submit" class="btn btn-danger btn-large" accesskey="l" value="<%= t.button.login[Random.rand(12)] %>"
+        <input type="submit" class="btn btn-danger btn-large" accesskey="l" value="Login"
                tabindex="4" id="login-submit" />
 </form>
