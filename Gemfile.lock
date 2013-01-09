@@ -11,21 +11,21 @@ GIT
 GEM
   remote: http://rubygems.org/
   specs:
-    activemodel (3.0.18)
-      activesupport (= 3.0.18)
+    activemodel (3.0.19)
+      activesupport (= 3.0.19)
       builder (~> 2.1.2)
       i18n (~> 0.5.0)
-    activerecord (3.0.18)
-      activemodel (= 3.0.18)
-      activesupport (= 3.0.18)
+    activerecord (3.0.19)
+      activemodel (= 3.0.19)
+      activesupport (= 3.0.19)
       arel (~> 2.0.10)
       tzinfo (~> 0.3.23)
     activerecord-mysql2-adapter (0.0.3)
       mysql2
-    activeresource (3.0.18)
-      activemodel (= 3.0.18)
-      activesupport (= 3.0.18)
-    activesupport (3.0.18)
+    activeresource (3.0.19)
+      activemodel (= 3.0.19)
+      activesupport (= 3.0.19)
+    activesupport (3.0.19)
     arel (2.0.10)
     builder (2.1.2)
     capistrano (2.13.5)
@@ -39,7 +39,6 @@ GEM
     capistrano-unicorn (0.1.6)
       capistrano
     capistrano_colors (0.5.5)
-    commonjs (0.2.6)
     crypt-isaac (0.9.1)
     faraday (0.8.4)
       multipart-post (~> 1.1)
@@ -50,9 +49,7 @@ GEM
     i18n (0.5.0)
     jsmin (1.0.1)
     kgio (2.7.4)
-    less (2.2.2)
-      commonjs (~> 0.2.6)
-    libv8 (3.11.8.11)
+    libv8 (3.11.8.13)
     multi_json (1.5.0)
     multipart-post (1.1.5)
     mysql2 (0.3.11)
@@ -118,7 +115,7 @@ DEPENDENCIES
   capistrano_colors
   crypt-isaac
   foreman
-  less
+  libv8 (~> 3.11.8.3)
   mysql2
   net-ldap (~> 0.1.1)
   newrelic_rpm

@@ -1,5 +1,5 @@
 set :rails_env, "production"
-set :deploy_to, "/home/rubycas-server/#{application}"
-server 'core-sso-1.synapsedev.com', :app, :web, :db, :primary => true
+set :deploy_to, "/home/rubycas/rubycas-server"
+server 'core-intra-1', :app, :web, :db, :primary => true
 set :branch, "master"
-set :user, 'rubycas-server'
+set :user, 'rubycas'

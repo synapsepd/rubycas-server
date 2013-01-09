@@ -11,7 +11,6 @@ gem "activerecord"
 gem "activesupport"
 gem "sinatra"
 gem 'sinatra-assetpack', :require => 'sinatra/assetpack'
-gem 'less'
 gem "therubyracer"
 gem "sinatra-r18n"
 gem "syslogger"
@@ -19,6 +18,7 @@ gem "crypt-isaac"
 gem 'unicorn'
 gem "sentry-raven", :git => "https://github.com/getsentry/raven-ruby.git"
 gem "newrelic_rpm"
+gem 'libv8', '~> 3.11.8.3', :platform => :ruby
 
 group :development do
   gem 'capistrano-unicorn', :require => false
