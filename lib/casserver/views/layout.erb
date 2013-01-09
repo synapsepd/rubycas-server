@@ -6,35 +6,35 @@
       xml:lang="en" lang="en" >
 
   <head>
-    <title><%= escape_html @organization %><%= t.label.central_login_title %></title>
+    <title><%= escape_html @organization %> <%= t.label.central_login_title %></title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
     <link rel="icon" type="image/png" href="<%= escape_html @uri_path %>/themes/<%= escape_html @theme %>/favicon.png" />
-    <%= css :bootstrap %>
-
+    <link rel="stylesheet" type="text/css" href="<%= escape_html @uri_path %>/css/bootstrap.min.css" />
+    <link rel="stylesheet" type="text/css" href="<%= escape_html @uri_path %>/css/app.css" />
+    <script>
+      window.addEventListener("load",function() {
+       setTimeout(function(){
+        window.scrollTo(0, 0);
+        }, 0);
+      });
+    </script>
   </head>
 
   <body>
+    <div class="navbar navbar-fixed-top">
+      <div class="navbar-inner">
+        <div class="container">
 
-    <div id="hdr" class="container">
-
-      <a id="logo" class="pull-left" href="#">
-        <div id="logo_box" class="pull-left"></div>
-        <span id="logo_text" class="pull-left">Synapse Central Login</span>
-      </a>
-
-      <a id="user_box" class="pull-right" href="#"><i class="icon-chevron-down"></i></a>
-      <span id="user_text" class="pull-right visible-desktop">
-        <% if @message && (@message[:type] == 'success'|| @message[:type] == 'notice') %>
-          You are logged in as <strong><%= @full_name %></strong>
-        <% else %>
-          You’re not logged in yet. That’s why you’re here...
-        <% end %>
-      </span>
-
-    </div><!-- /#hdr -->
-
-    <div class="container">
-      <%= yield %>
+          <!-- Be sure to leave the brand out there if you want it shown -->
+          <a class="brand" href="#">
+            <div id="logo_box" class="pull-left"></div>
+            Synapse Central Login
+          </a>
+        </div>
+      </div>
     </div>
-     <%= js  :main %>
+    <%= yield %>
+    <script type="text/javascript" src="<%= escape_html @uri_path %>/js/jquery-1.8.0.js"></script>
+    <script type="text/javascript" src="<%= escape_html @uri_path %>/js/bootstrap.min.js"></script>
   </body>
 </html>

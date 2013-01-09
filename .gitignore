@@ -17,3 +17,5 @@ custom/*
 resources/dev
 .bundle
 /tmp/*
+.vagrant
+Vagrantfile
