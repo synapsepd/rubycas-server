@@ -8,11 +8,13 @@
         </div>
         <div class="control-group">
           <label class="control-label" for="password">Password</label>
-          <input type="password" id="password" name="password" class="span4"
+          <input type="password" id="password" name="password" class="span4 x"
                tabindex="2" accesskey="p" autocomplete="off" placeholder="<%= t.label.password %>" />
         </div>
         <input type="hidden" id="lt" name="lt" value="<%= escape_html @lt %>" />
         <input type="hidden" id="service" name="service" value="<%= escape_html @service %>" />
-        <input type="submit" class="btn btn-danger btn-large" accesskey="l" value="Login"
+        <div class="form-actions">
+        <input type="submit" class="btn btn-danger btn-large btn-block" accesskey="l" value="Login"
                tabindex="4" id="login-submit" />
+        </div>
 </form>

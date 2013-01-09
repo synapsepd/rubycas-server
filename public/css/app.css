@@ -1,0 +1,261 @@
+/***  GOTHAM BOOK    ***/
+
+@font-face {
+    font-family: 'GothamHTF';
+    src: url('/assets/gothamhtf-book-webfont.eot');
+    src: url('/assets/gothamhtf-book-webfont.eot?#iefix') format('embedded-opentype'),
+         url('/assets/gothamhtf-book-webfont.woff') format('woff'),
+         url('/assets/gothamhtf-book-webfont.ttf') format('truetype'),
+         url('/assets/gothamhtf-book-webfont.svg#GothamHTFBook') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+@font-face {
+    font-family: 'GothamHTF';
+    src: url('/assets/gothamhtf-bookitalic-webfont.eot');
+    src: url('/assets/gothamhtf-bookitalic-webfont.eot?#iefix') format('embedded-opentype'),
+         url('/assets/gothamhtf-bookitalic-webfont.woff') format('woff'),
+         url('/assets/gothamhtf-bookitalic-webfont.ttf') format('truetype'),
+         url('/assets/gothamhtf-bookitalic-webfont.svg#GothamHTFBookItalic') format('svg');
+    font-weight: normal;
+    font-style: italic;
+
+}
+
+/***  GOTHAM MEDIUM (no italic)  ***/
+
+@font-face {
+    font-family: 'GothamHTF';
+    src: url('/assets/gothamhtf-medium-webfont.eot');
+    src: url('/assets/gothamhtf-medium-webfont.eot?#iefix') format('embedded-opentype'),
+         url('/assets/gothamhtf-medium-webfont.woff') format('woff'),
+         url('/assets/gothamhtf-medium-webfont.ttf') format('truetype'),
+         url('/assets/gothamhtf-medium-webfont.svg#GothamHTFMedium') format('svg');
+    font-weight: 500;
+    font-style: normal;
+
+}
+
+/***  GOTHAM BOLD    ***/
+
+@font-face {
+    font-family: 'GothamHTF';
+    src: url('/assets/gothamhtf-bold-webfont.eot');
+    src: url('/assets/gothamhtf-bold-webfont.eot?#iefix') format('embedded-opentype'),
+         url('/assets/gothamhtf-bold-webfont.woff') format('woff'),
+         url('/assets/gothamhtf-bold-webfont.ttf') format('truetype'),
+         url('/assets/gothamhtf-bold-webfont.svg#GothamHTFBold') format('svg');
+    font-weight: bold;
+    font-style: normal;
+
+}
+
+@font-face {
+    font-family: 'GothamHTF';
+    src: url('/assets/gothamhtf-bolditalic-webfont.eot');
+    src: url('/assets/gothamhtf-bolditalic-webfont.eot?#iefix') format('embedded-opentype'),
+         url('/assets/gothamhtf-bolditalic-webfont.woff') format('woff'),
+         url('/assets/gothamhtf-bolditalic-webfont.ttf') format('truetype'),
+         url('/assets/gothamhtf-bolditalic-webfont.svg#GothamHTFBoldItalic') format('svg');
+    font-weight: bold;
+    font-style: italic;
+
+}
+
+/***  GOTHAM BLACK  ***/
+
+@font-face {
+    font-family: 'GothamHTFBlack';
+    src: url('/assets/gothamhtf-black-webfont.eot');
+    src: url('/assets/gothamhtf-black-webfont.eot?#iefix') format('embedded-opentype'),
+         url('/assets/gothamhtf-black-webfont.woff') format('woff'),
+         url('/assets/gothamhtf-black-webfont.ttf') format('truetype'),
+         url('/assets/gothamhtf-black-webfont.svg#GothamHTFBlack') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+@font-face {
+    font-family: 'GothamHTFBlack';
+    src: url('/assets/gothamhtf-blackitalic-webfont.eot');
+    src: url('/assets/gothamhtf-blackitalic-webfont.eot?#iefix') format('embedded-opentype'),
+         url('/assets/gothamhtf-blackitalic-webfont.woff') format('woff'),
+         url('/assets/gothamhtf-blackitalic-webfont.ttf') format('truetype'),
+         url('/assets/gothamhtf-blackitalic-webfont.svg#GothamHTFBlackItalic') format('svg');
+    font-weight: normal;
+    font-style: italic;
+
+}
+
+/***  GOTHAM THIN  ***/
+
+@font-face {
+    font-family: 'GothamHTFThin';
+    src: url('/assets/gothamhtf-thin-webfont.eot');
+    src: url('/assets/gothamhtf-thin-webfont.eot?#iefix') format('embedded-opentype'),
+         url('/assets/gothamhtf-thin-webfont.woff') format('woff'),
+         url('/assets/gothamhtf-thin-webfont.ttf') format('truetype'),
+         url('/assets/gothamhtf-thin-webfont.svg#GothamHTFThin') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+
+@font-face {
+    font-family: 'GothamHTFThin';
+    src: url('/assets/gothamhtf-thinitalic-webfont.eot');
+    src: url('/assets/gothamhtf-thinitalic-webfont.eot?#iefix') format('embedded-opentype'),
+         url('/assets/gothamhtf-thinitalic-webfont.woff') format('woff'),
+         url('/assets/gothamhtf-thinitalic-webfont.ttf') format('truetype'),
+         url('/assets/gothamhtf-thinitalic-webfont.svg#GothamHTFThinItalic') format('svg');
+    font-weight: normal;
+    font-style: italic;
+
+}
+
+
+
+/***  GOTHAM LIGHT  ***/
+
+@font-face {
+    font-family: 'GothamHTFLight';
+    src: url('/assets/gothamhtf-light-webfont.eot');
+    src: url('/assets/gothamhtf-light-webfont.eot?#iefix') format('embedded-opentype'),
+         url('/assets/gothamhtf-light-webfont.woff') format('woff'),
+         url('/assets/gothamhtf-light-webfont.ttf') format('truetype'),
+         url('/assets/gothamhtf-light-webfont.svg#GothamHTFLight') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+@font-face {
+    font-family: 'GothamHTFLight';
+    src: url('/assets/gothamhtf-lightitalic-webfont.eot');
+    src: url('/assets/gothamhtf-lightitalic-webfont.eot?#iefix') format('embedded-opentype'),
+         url('/assets/gothamhtf-lightitalic-webfont.woff') format('woff'),
+         url('/assets/gothamhtf-lightitalic-webfont.ttf') format('truetype'),
+         url('/assets/gothamhtf-lightitalic-webfont.svg#GothamHTFLightItalic') format('svg');
+    font-weight: normal;
+    font-style: italic;
+
+}
+
+/***  GOTHAM ULTRA  ***/
+
+@font-face {
+    font-family: 'GothamHTFUltra';
+    src: url('/assets/gothamhtf-ultra-webfont.eot');
+    src: url('/assets/gothamhtf-ultra-webfont.eot?#iefix') format('embedded-opentype'),
+         url('/assets/gothamhtf-ultra-webfont.woff') format('woff'),
+         url('/assets/gothamhtf-ultra-webfont.ttf') format('truetype'),
+         url('/assets/gothamhtf-ultra-webfont.svg#GothamHTFUltra') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+@font-face {
+    font-family: 'GothamHTFUltra';
+    src: url('/assets/gothamhtf-ultraitalic-webfont.eot');
+    src: url('/assets/gothamhtf-ultraitalic-webfont.eot?#iefix') format('embedded-opentype'),
+         url('/assets/gothamhtf-ultraitalic-webfont.woff') format('woff'),
+         url('/assets/gothamhtf-ultraitalic-webfont.ttf') format('truetype'),
+         url('/assets/gothamhtf-ultraitalic-webfont.svg#GothamHTFUltraItalic') format('svg');
+    font-weight: normal;
+    font-style: italic;
+
+}
+
+/***  GOTHAM X-LIGHT  ***/
+
+@font-face {
+    font-family: 'GothamHTFXLight';
+    src: url('/assets/gothamhtf-xlight-webfont.eot');
+    src: url('/assets/gothamhtf-xlight-webfont.eot?#iefix') format('embedded-opentype'),
+         url('/assets/gothamhtf-xlight-webfont.woff') format('woff'),
+         url('/assets/gothamhtf-xlight-webfont.ttf') format('truetype'),
+         url('/assets/gothamhtf-xlight-webfont.svg#GothamHTFXLight') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+@font-face {
+    font-family: 'GothamHTFXLight';
+    src: url('/assets/gothamhtf-xlightitalic-webfont.eot');
+    src: url('/assets/gothamhtf-xlightitalic-webfont.eot?#iefix') format('embedded-opentype'),
+         url('/assets/gothamhtf-xlightitalic-webfont.woff') format('woff'),
+         url('/assets/gothamhtf-xlightitalic-webfont.ttf') format('truetype'),
+         url('/assets/gothamhtf-xlightitalic-webfont.svg#GothamHTFXLightItalic') format('svg');
+    font-weight: normal;
+    font-style: italic;
+
+}
+
+.form-actions {
+  padding: 0;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  background-color: whiteSmoke;
+  border-top: 1px solid #E5E5E5;
+}
+
+.btn {
+color: white;
+text-shadow: 0;
+background-color: #EE3124;
+background-image: none;
+filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffffffff', endColorstr='#ffe6e6e6', GradientType=0);
+border: 0;
+-webkit-border-radius: 0;
+-moz-border-radius: 0;
+border-radius: 0;
+-webkit-box-shadow: none;
+-moz-box-shadow: none;
+box-shadow: none;
+}
+
+.alert, select, textarea, input[type="text"], input[type="password"], input[type="datetime"], input[type="datetime-local"], input[type="date"], input[type="month"], input[type="time"], input[type="week"], input[type="number"], input[type="email"], input[type="url"], input[type="search"], input[type="tel"], input[type="color"], .uneditable-input {
+  -webkit-border-radius: 0;
+  -moz-border-radius: 0;
+  border-radius: 0;
+}
+
+#logo_box {
+height: 20px;
+width: 20px;
+display: block;
+background-color: #EE3124;
+color: white;
+margin-right: 10px;
+}
+.navbar .brand {
+  font-family: "GothamHTF", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-weight: 600;
+  color: #EE3124;
+  text-shadow: none;
+}
+
+.navbar-fixed-top .navbar-inner, .navbar-static-top .navbar-inner {
+  -webkit-box-shadow: none;
+-moz-box-shadow: none;
+box-shadow: none;
+}
+
+.navbar-inner {
+min-height: 40px;
+padding-left: 20px;
+padding-right: 20px;
+background-color: #EBEBEC;
+background-image: none;
+filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffffffff', endColorstr='#fff2f2f2', GradientType=0);
+border: 1px solid #D4D4D4;
+-webkit-box-shadow: none;
+-moz-box-shadow: none;
+box-shadow: none;
+}

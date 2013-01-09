@@ -34,7 +34,7 @@ module CASServer::CAS
     tgt.ticket = "TGC-" + String.random
     tgt.username = username
     tgt.extra_attributes = extra_attributes
-    tgt.expires = (Time.now + 2.weeks).strftime("%a, %d-%b-%Y %H:%M:%S GMT")
+    # tgt.expires = (Time.now + 2.weeks).strftime("%a, %d-%b-%Y %H:%M:%S GMT")
     tgt.client_hostname = @env['HTTP_X_FORWARDED_FOR'] || @env['REMOTE_HOST'] || @env['REMOTE_ADDR']
     tgt.save!
     $LOG.debug("Generated ticket granting ticket '#{tgt.ticket}' for user" +
