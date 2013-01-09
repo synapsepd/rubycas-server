@@ -38,7 +38,7 @@ module CASServer::CAS
     tgt.client_hostname = @env['HTTP_X_FORWARDED_FOR'] || @env['REMOTE_HOST'] || @env['REMOTE_ADDR']
     tgt.save!
     $LOG.debug("Generated ticket granting ticket '#{tgt.ticket}' for user" +
-      " '#{tgt.username}' at '#{tgt.client_hostname}' with expiration of '#{tgt.expires}'" +
+      " '#{tgt.username}' at '#{tgt.client_hostname}'" +
       (extra_attributes.blank? ? "" : " with extra attributes #{extra_attributes.inspect}"))
     tgt
   end

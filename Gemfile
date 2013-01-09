@@ -18,6 +18,7 @@ gem "syslogger"
 gem "crypt-isaac"
 gem 'unicorn'
 gem "sentry-raven", :git => "https://github.com/getsentry/raven-ruby.git"
+gem "newrelic_rpm"
 
 group :development do
   gem 'capistrano-unicorn', :require => false
