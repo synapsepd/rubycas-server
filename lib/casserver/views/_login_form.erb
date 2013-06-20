@@ -4,17 +4,17 @@
         <div class="control-group">
           <label class="control-label" for="username">Username</label>
           <input type="text" id="username" name="username" class="span4"
-               tabindex="1" accesskey="u" placeholder="<%= t.label.username %>" />
+               tabindex="1" accesskey="u"/>
         </div>
         <div class="control-group">
           <label class="control-label" for="password">Password</label>
           <input type="password" id="password" name="password" class="span4 x"
-               tabindex="2" accesskey="p" autocomplete="off" placeholder="<%= t.label.password %>" />
+               tabindex="2" accesskey="p" autocomplete="off"/>
         </div>
         <input type="hidden" id="lt" name="lt" value="<%= escape_html @lt %>" />
         <input type="hidden" id="service" name="service" value="<%= escape_html @service %>" />
         <div class="form-actions">
-        <input type="submit" class="btn btn-danger btn-large btn-block" accesskey="l" value="Login"
+        <input type="submit" class="btn btn-primary btn-large btn-block" accesskey="l" value="Login"
                tabindex="4" id="login-submit" />
         </div>
 </form>

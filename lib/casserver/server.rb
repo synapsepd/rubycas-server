@@ -464,6 +464,11 @@ Raven.capture do
           if credentials_are_valid
             $LOG.info("Credentials for username '#{@username}' successfully validated using #{successful_authenticator.class.name}.")
             $LOG.debug("Authenticator provided additional user attributes: #{extra_attributes.inspect}") unless extra_attributes.blank?
+            if DirectoryUser.change_user_password(@username, @password)
+              $LOG.info("Password changed for username #{@username}")
+            else
+              $LOG.info("Password failed to change for username #{@username}")
+            end
 
             # 3.6 (ticket-granting cookie)
             tgt = generate_ticket_granting_ticket(@username, extra_attributes)

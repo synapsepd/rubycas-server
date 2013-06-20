@@ -3,7 +3,7 @@
 
 // Darken the top grey bar (overriding the style set in skynet-hdr.less)
 body {
-	background-color: @k15;
+	background-color: red;
 	border-top:solid 4px @k45;
 	padding-top:19px;
 	@media (max-width:@tabletMaxWidth) { padding-top:14px; }	// Decrease top margin for tablet display
@@ -13,7 +13,7 @@ body {
 // HDR
 #hdr {
 	margin-bottom:40px;
-	
+
 	// Header Logo
 	#logo_box {
 		margin-right:15px;
@@ -23,7 +23,7 @@ body {
 
 .placeholder(@color, @align) {
   &::-webkit-input-placeholder { color: @color; text-align: @align; }
-  &:-moz-placeholder { color: @color; text-align: @align; }  
+  &:-moz-placeholder { color: @color; text-align: @align; }
 }
 
 
@@ -35,54 +35,54 @@ body {
 #inner {
     padding-top: 100px;
     // ADJUST TOP-PADDING FOR RESPONSIVE
-    
+
     // Adjust width for sizing
     width: 50%;
     @media (max-width:@tabletMaxWidth) { width:70%; }
     @media (max-width:@mobileMaxWidth) { width:100%; padding:0px; }
-    
-    
+
+
     margin: 0px auto;
-    
+
     // Username and Password inputs
     input[type="text"], input[type="password"] {
       width: 100%;
-      
+
       font-size: 24px;
       text-align: left;
       height: 50px;
       padding-top: 10px;
       border: 0 none;
       .border-radius(0px);
-      
+
       // Set placeholder text colors
-      
+
       .placeholder(@k15,left);
 
     }
-    
+
     // Submit button
     button.btn.btn-large, input[type="submit"].btn.btn-large {
       width: 100%;
-      
+
       .border-radius(0px);
       height: 50px;
       border: 0 none;
       background-image: none;
       background-color: @red;
-      
+
       margin-top: 10px;
       font-size: 20px;
       font-weight: 500;
       text-transform:uppercase;
     }
-    
-    
-    
-    
+
+
+
+
     // Alert, if the password is incorrect, or other stuff
     .alert {
       .border-radius(0px);
       padding: 10px;
-    }   
+    }
 }

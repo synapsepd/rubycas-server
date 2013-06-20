@@ -4,7 +4,8 @@ gem 'capistrano'
 gem 'capistrano-ext'
 gem 'capistrano_colors'
 
-gem 'rubycas-server'
+gem 'appraisal'
+gem 'synapse-rubycas-server'
 gem "mysql2"
 gem 'activerecord-mysql2-adapter'
 gem "activerecord"
@@ -27,7 +28,7 @@ end
 
 # Gems for authenticators
 group :ldap do
-    gem "net-ldap", "~> 0.1.1"
+  gem "net-ldap", "~> 0.1.1"
 end
 
 group :active_resource do
