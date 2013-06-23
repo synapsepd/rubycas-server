@@ -1,26 +1,36 @@
 require "bundler/capistrano"
 require "capistrano/ext/multistage"
-set :bundle_flags, "--deployment --quiet --binstubs --shebang ruby-local-exec"
+require 'hipchat/capistrano'
 
+load "config/recipes/base"
+load "config/recipes/nginx"
+load "config/recipes/puma"
+load "config/recipes/git"
+load "config/recipes/rubycas"
+
+set :user, 'deployer'
+set :application, "rubycas"
+set :deploy_to, "/home/#{user}/apps/#{application}"
+set :deploy_via, :remote_cache
+set :use_sudo, false
+
+set :bundle_flags, "--deployment --quiet --binstubs"
+set :bundler, "/home/#{user}/.rbenv/shims/bundle"
 set :default_environment, {
-  'PATH' => "/home/rubycas/.rbenv/shims:/home/rubycas/.rbenv/bin:$PATH"
+  'PATH' => "/home/#{user}/.rbenv/shims:/home/#{user}/.rbenv/bin:#{current_path}/bin:$PATH"
 }
 
-set :application, 'rubycas-server'
-set :stages, %w(development production)
+set :repository,  "git@gitlab.synapse.com:synapseit/rubycas-server.git"
+set :stages, %w(staging production)
 set :scm, :git
-set :deploy_via, :remote_cache
-set :user, 'rubycas-server'
-set :use_sudo, false
 set :ssh_options, { :forward_agent => true }
 default_run_options[:pty] = true
 
-set :application, "rubycas-server"
-set :repository,  "git@gitlab.synapse.com:rubycas-server.git"
-# require 'capistrano-unicorn'
+#hipchat
+set :hipchat_token, "513b16064cff1be931093fb28f37c4"
+set :hipchat_room_name, "The Hacker Dojo"
+set :hipchat_announce, true # notify users?
 
-namespace :deploy do
-  task :restart, :roles => :web do
-    sudo "sudo service rubycas-server restart"
-  end
-end
+#nginx
+set :sudo_user, 'root'
+set :app_port, "80"

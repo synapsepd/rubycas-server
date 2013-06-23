@@ -1,5 +1,4 @@
-set :rails_env, "development"
-set :deploy_to, "/home/rubycas/rubycas-server"
-server 'core-intra-dev-1', :app, :web, :db, :primary => true
-set :branch, "development"
-set :user, 'rubycas'
+set :rails_env, "production"
+server 'sso-dev.synapse.com', :app, :web, :db, :primary => true
+set :branch, current_git_branch
+set :server_name, 'sso-dev.synapse.com'

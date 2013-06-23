@@ -1,0 +1,13 @@
+environment '<%= stage %>' || 'development'
+
+threads 3,3
+
+bind  "unix:///<%= puma_sock %>"
+pidfile "<%= puma_pid %>"
+state_path "<%= puma_state %>"
+
+daemonize true
+
+stdout_redirect '<%= shared_path %>/log/puma.stdout.log', '<%= shared_path %>/log/puma.stderror.log', true
+
+activate_control_app "unix:///<%= puma_ctl_sock %>"

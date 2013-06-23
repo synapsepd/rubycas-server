@@ -1,0 +1,114 @@
+# MANAGED BY CAPISTRANO
+
+
+##### DATABASE #################################################################
+
+database:
+  adapter: mysql2
+  database: casserver_dev
+  username: casserver_user
+  password: DaDLw7a7oXZVWz
+  host: core-internal.cg3ywao0k1nv.us-west-2.rds.amazonaws.com
+  reconnect: true
+
+#disable_auto_migrations: true
+
+##### AUTHENTICATION ###########################################################
+
+authenticator:
+ class: CASServer::Authenticators::ActiveDirectoryLDAP
+ ldap:
+   host: core-dc-1.synapsedev.com
+   port: 389
+   base: OU=SBSUsers,OU=Users,OU=MyBusiness,DC=synapsedev,DC=com
+   filter: (&(objectCategory=person)(objectClass=user))
+   auth_user: SYNAPSEDEV\~svcProvisioningConf
+   auth_password: IZE6CgJhIZZYbKfyW4Po
+ extra_attributes: name, mail, memberOf, synapseRecursiveGroups, synapseExtendedAttributes, givenname, sn, pinNumber, department, company, l, synapseAccessCardNumber
+
+theme: simple
+
+organization: Synapse
+
+infoline: Powered by <a href="http://code.google.com/p/rubycas-server/">RubyCAS-Server</a>
+
+# Custom views directory. If set, this will be used instead of 'lib/casserver/views'.
+custom_views: <%= deploy_to %>/current/lib/casserver/views
+
+# Custom public directory. If set, static content (css, etc.) will be served from here rather
+# than from rubycas-server's internal 'public' directory (but be mindful of any overriding
+# settings you may have in your web server's config).
+public_dir: <%= deploy_to %>/current/public
+
+default_locale: en
+
+##### LOGGING ##################################################################
+
+log:
+  file: <%= shared_path %>/log/casserver.log
+  level: DEBUG
+
+
+# If you want full database logging, uncomment this next section.
+# Every SQL query will be logged here. This is useful for debugging database
+# problems.
+
+#db_log:
+#  file: /var/log/casserver_db.log
+
+
+# Setting the following option to true will disable CLI output to stdout.
+# i.e. this will get rid of messages like ">>> Redirecting RubyCAS-Server log..."
+# This is useful when, for example, you're running rspecs.
+
+#quiet: true
+
+
+##### SINGLE SIGN-OUT ##########################################################
+
+# When a user logs in to a CAS-enabled client application, that application
+# generally opens its own local user session. When the user then logs out
+# through the CAS server, each of the CAS-enabled client applications need
+# to be notified so that they can close their own local sessions for that user.
+#
+# Up until recently this was not possible within CAS. However, a method for
+# performing this notification was recently added to the protocol (in CAS 3.1).
+# This works exactly as described above -- when the user logs out, the CAS
+# server individually contacts each client service and notifies it of the
+# logout. Currently not all client applications support this, so this
+# behaviour is disabled by default. To enable it, uncomment the following
+# configuration line. Note that currently it is not possible to enable
+# or disable single-sign-out on a per-service basis, but this functionality
+# is planned for a future release.
+
+enable_single_sign_out: true
+
+
+##### OTHER ####################################################################
+
+# You can set various ticket expiry times (specify the value in seconds).
+
+# Unused login and service tickets become unusable this many seconds after
+# they are created. (Defaults to 5 minutes)
+
+#maximum_unused_login_ticket_lifetime: 300
+#maximum_unused_service_ticket_lifetime: 300
+
+# The server must periodically delete old tickets (login tickets, service tickets
+# proxy-granting tickets, and ticket-granting tickets) to prevent buildup of
+# stale data. This effectively limits the maximum length of a CAS session to
+# the lifetime given here (in seconds). (Defaults to 48 hours)
+#
+# Note that this limit is not enforced on the client side; it refers only to the
+# the maximum lifetime of tickets on the CAS server.
+
+#maximum_session_lifetime: 172800
+
+
+# If you want the usernames entered on the login page to be automatically
+# downcased (converted to lowercase), enable the following option. When this
+# option is set to true, if the user enters "JSmith" as their username, the
+# system will automatically
+# convert this to "jsmith".
+
+downcase_username: true

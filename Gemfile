@@ -1,29 +1,23 @@
 source "http://rubygems.org"
 
-gem 'capistrano'
-gem 'capistrano-ext'
-gem 'capistrano_colors'
-
 gem 'appraisal'
-gem 'synapse-rubycas-server'
+gem 'synapse-rubycas-server', "1.1.3alpha"
 gem "mysql2"
 gem 'activerecord-mysql2-adapter'
 gem "activerecord"
 gem "activesupport"
 gem "sinatra"
-gem 'sinatra-assetpack', :require => 'sinatra/assetpack'
-gem "therubyracer"
 gem "sinatra-r18n"
-gem "syslogger"
-gem "crypt-isaac"
-gem 'unicorn'
-gem "sentry-raven", :git => "https://github.com/getsentry/raven-ruby.git"
+gem 'puma', "~> 2.1.1"
 gem "newrelic_rpm"
-gem 'libv8', '~> 3.11.8.3', :platform => :ruby
 
 group :development do
+  gem 'capistrano-ext'
+  gem 'capistrano_colors'
+  gem 'capistrano-rbenv'
   gem 'capistrano-unicorn', :require => false
   gem 'foreman'
+  gem 'hipchat'
 end
 
 # Gems for authenticators
