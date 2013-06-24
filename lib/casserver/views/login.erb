@@ -1,18 +1,16 @@
 <%# coding: UTF-8 -%>
-<div class="container" style="margin-top:60px;">
-  <div class="row">
-    <div class="span12">
-      <% if @message %>
-        <div class="alert <%= escape_html @message[:type] %>">
-          <button type="button" class="close" data-dismiss="alert">&times;</button>
-          <%= escape_html @message[:message] %>
-        </div>
-      <% end %>
-    </div>
-  </div>
+<div id="login" class="container">
   <div class="row">
     <div class="span4 offset4">
-      <%= erb(:_login_form, :layout => false) %>
+    <% if @message %>
+      <div class="alert <%= escape_html @message[:type] %>">
+        <button type="button" class="close" data-dismiss="alert">&times;</button>
+        <%= escape_html @message[:message] %>
+      </div>
+    <% end %>
+      <div class="login-form">
+        <%= erb(:_login_form, :layout => false) %>
+    </div>
     </div>
   </div>
 </div>

@@ -1,3 +1,190 @@
 body, input {
-  font-family: "Roboto", "Helvetica Neue"
+  font-family: 'Roboto', "Helvetica Neue", Arial, sans-serif;]
+}
+
+body {
+  padding-top: 60px;
+  background-color: #ebebec;
+}
+
+#login {
+  margin-top: 60px;
+}
+
+a {
+color: #00a3c1;
+text-decoration: none;
+}
+
+#login .login-form {
+    padding: 20px;
+    background-color: #ffffff;
+    margin-bottom: 10px;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    border-radius: 3px;
+    border: 1px solid #dcddde;
+    -webkit-box-shadow: 0 1px 1px rgba(0, 0, 0, 0.075);
+    -moz-box-shadow: 0 1px 1px rgba(0, 0, 0, 0.075);
+    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.075);
+    -webkit-transition: border linear .2s, box-shadow linear .2s;
+    -moz-transition: border linear .2s, box-shadow linear .2s;
+    -o-transition: border linear .2s, box-shadow linear .2s;
+    transition: border linear .2s, box-shadow linear .2s;
+}
+
+input[type="text"], input[type="password"] {
+  width: 316px;
+}
+
+@media (max-width: 1199px) {
+  input[type="text"], input[type="password"] {
+    width: 250px !important;
+  }
+}
+
+@media (max-width: 767px) {
+  input[type="text"], input[type="password"] {
+    width: 304px !important;
+  }
+}
+
+@media (max-width: 979px) and (min-width: 768px) {
+  .span4 {
+    width: 300px;
+  }
+}
+
+@media (max-width: 979px) {
+  body {
+    padding-top: 0;
+  }
+}
+
+@media (max-width: 767px) {
+  #login {
+    margin-top: 10px;
+  }
+}
+
+.navbar-fixed-top .navbar-inner,
+.navbar-static-top .navbar-inner {
+  -webkit-box-shadow: 0 1px 1px rgba(0, 0, 0, 0.075);
+  -moz-box-shadow: 0 1px 1px rgba(0, 0, 0, 0.075);
+  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.075);
+}
+.navbar .nav > .active > a,
+.navbar .nav > .active > a:hover,
+.navbar .nav > .active > a:focus {
+  color: #ffffff;
+  text-decoration: none;
+  -webkit-box-shadow: 0 0 0;
+  -moz-box-shadow: 0 0 0;
+  box-shadow: 0 0 0;
+}
+
+.navbar-inner {
+  background-image: none;
+  background-color: #ffffff;
+  padding: 5px;
+}
+
+.navbar .brand {
+  font-family: 'Roboto', "Helvetica Neue", Arial, sans-serif;
+  font-weight: bold;
+  text-shadow: none;
+  font-size: 150%;
+  color: #ef4524;
+}
+
+.navbar #logo_box {
+  height: 20px;
+  width: 20px;
+  display: block;
+  background-color: #ef4524;
+  color: #ffffff;
+  margin-right: 10px;
+}
+
+.btn-primary {
+  color: #ffffff;
+  text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25);
+  background-color: #00a3c1;
+  background-image: -moz-linear-gradient(top, #00a3c1, #00a3c1);
+  background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#00a3c1), to(#00a3c1));
+  background-image: -webkit-linear-gradient(top, #00a3c1, #00a3c1);
+  background-image: -o-linear-gradient(top, #00a3c1, #00a3c1);
+  background-image: linear-gradient(to bottom, #00a3c1, #00a3c1);
+  background-repeat: repeat-x;
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ff00a3c1', endColorstr='#ff00a3c1', GradientType=0);
+  border-color: #00a3c1 #00a3c1 #006275;
+  border-color: rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.25);
+  *background-color: #00a3c1;
+  /* Darken IE7 buttons by default so they stand out more given they won't have borders */
+
+  filter: progid:DXImageTransform.Microsoft.gradient(enabled = false);
+}
+
+.btn-primary:hover,
+.btn-primary:focus,
+.btn-primary:active,
+.btn-primary.active,
+.btn-primary.disabled,
+.btn-primary[disabled] {
+  color: #ffffff;
+  background-color: #00a3c1;
+  *background-color: #008da8;
+}
+.btn-primary:active,
+.btn-primary.active {
+  background-color: #00788e \9;
+}
+.btn-primary:hover,
+.btn-primary:focus,
+.btn-primary:active,
+.btn-primary.active,
+.btn-primary.disabled,
+.btn-primary[disabled] {
+  color: #ffffff;
+  background-color: #00a3c1;
+  *background-color: #008da8;
+}
+.btn-primary:active,
+.btn-primary.active {
+  background-color: #00788e \9;
+}
+
+.form-actions {
+  padding: 0;
+  margin-bottom: 0;
+  background-color: #ffffff;
+  border: 0;
+  margin-top: 10px;
+}
+
+.password {
+  margin-top: 5px;
+  font-size: 90%;
+}
+
+.alert {
+  color: #ffffff;
+padding: 8px 35px 8px 14px;
+margin-bottom: 20px;
+text-shadow: 0 0px 0 rgba(255,255,255,0.5);
+background-color: #808285;
+border: 1px solid #636466;
+-webkit-border-radius: 4px;
+-moz-border-radius: 4px;
+border-radius: 4px;
+}
+
+form {
+  margin-bottom: 0;
+}
+
+.close {
+color: #ffffff !important;
+opacity: 1;
+text-shadow: 0 0px 0 #fff;
 }

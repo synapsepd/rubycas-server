@@ -10,6 +10,7 @@ gem "sinatra"
 gem "sinatra-r18n"
 gem 'puma', "~> 2.1.1"
 gem "newrelic_rpm"
+gem "rake", "~> 10.0.4"
 
 group :development do
   gem 'capistrano-ext'

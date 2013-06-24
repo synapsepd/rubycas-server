@@ -3,18 +3,19 @@
       onsubmit="submitbutton = document.getElementById('login-submit'); submitbutton.value='<%= t.notice.please_wait %>'; submitbutton.disabled=true; return true;">
         <div class="control-group">
           <label class="control-label" for="username">Username</label>
-          <input type="text" id="username" name="username" class="span4"
+          <input type="text" id="username" name="username"
                tabindex="1" accesskey="u"/>
         </div>
         <div class="control-group">
           <label class="control-label" for="password">Password</label>
-          <input type="password" id="password" name="password" class="span4 x"
+          <input type="password" id="password" name="password"
                tabindex="2" accesskey="p" autocomplete="off"/>
         </div>
         <input type="hidden" id="lt" name="lt" value="<%= escape_html @lt %>" />
         <input type="hidden" id="service" name="service" value="<%= escape_html @service %>" />
         <div class="form-actions">
-        <input type="submit" class="btn btn-primary btn-large btn-block" accesskey="l" value="Login"
+        <input type="submit" class="btn btn-primary" accesskey="l" value="Login"
                tabindex="4" id="login-submit" />
+        <a href="https://passwords.synapsedev.com/" class="password pull-right">Change your password?</a>
         </div>
 </form>

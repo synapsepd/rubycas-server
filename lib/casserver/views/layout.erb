@@ -9,7 +9,6 @@
     <title><%= escape_html @organization %> <%= t.label.central_login_title %></title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
     <link rel="icon" type="image/png" href="<%= escape_html @uri_path %>/themes/<%= escape_html @theme %>/favicon.png" />
-    <link href='http://fonts.googleapis.com/css?family=Roboto:400,300,500' rel='stylesheet' type='text/css'>
     <link rel="stylesheet" type="text/css" href="<%= escape_html @uri_path %>/css/bootstrap.min.css" />
     <link rel="stylesheet" type="text/css" href="<%= escape_html @uri_path %>/css/bootstrap-responsive.min.css" />
     <link rel="stylesheet" type="text/css" href="<%= escape_html @uri_path %>/css/app.css" />
@@ -20,6 +19,19 @@
         }, 0);
       });
     </script>
+    <script type="text/javascript">
+      WebFontConfig = {
+        google: { families: [ 'Roboto:400,300,500,700:latin' ] }
+      };
+      (function() {
+        var wf = document.createElement('script');
+        wf.src = ('https:' == document.location.protocol ? 'https' : 'http') +
+          '://ajax.googleapis.com/ajax/libs/webfont/1/webfont.js';
+        wf.type = 'text/javascript';
+        wf.async = 'true';
+        var s = document.getElementsByTagName('script')[0];
+        s.parentNode.insertBefore(wf, s);
+      })(); </script>
   </head>
 
   <body>
