@@ -76,7 +76,7 @@ GEM
     sinatra-r18n (1.1.5)
       r18n-core (= 1.1.5)
       sinatra (>= 1.3)
-    synapse-rubycas-server (1.1.3alpha)
+    synapse-rubycas-server (1.1.4)
       activerecord (>= 2.3.12, < 4.0)
       activesupport (>= 2.3.12, < 4.0)
       crypt-isaac (~> 0.9.1)
@@ -107,4 +107,4 @@ DEPENDENCIES
   puma (~> 2.1.1)
   sinatra
   sinatra-r18n
-  synapse-rubycas-server (= 1.1.3alpha)
+  synapse-rubycas-server (= 1.1.4)
