@@ -6,7 +6,7 @@ require 'sinatra/base'
 require 'builder' # for XML views
 require 'logger'
 require 'net/ldap'
-require 'casserver/directory_user'
+require 'casserver/core_ext/directory_user'
 $LOG = Logger.new(STDOUT)
 
 require 'casserver/authenticators/base'

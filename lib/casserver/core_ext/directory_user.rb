@@ -40,12 +40,15 @@ class DirectoryUser
           [ :delete, :unicodePwd, [microsoft_encode_password(password)] ],
           [ :add, :unicodePwd, [microsoft_encode_password(password)] ]
       ]
-      if ldap_con.modify(:dn => dn, :operations => ops)
-        true
-      else
-        puts result[:dn].first
-        raise StandardError, "Password field was not updated for #{username}. LDAP #{ldap_con.get_operation_result.code} Error: #{ldap_con.get_operation_result.message}"
-      end
+      ldap_con.modify(:dn => dn, :operations => ops)
+      true
+      # if ldap_con.get_operation_result.code == 0
+      #   return true
+      # else
+      #   raise StandardError, "Password field was not updated for #{username}. LDAP #{ldap_con.get_operation_result.code} Error: #{ldap_con.get_operation_result.message}"
+      # end
+    else
+      raise StandardError, "Ldap failed to connect Error #{ldap_con.get_operation_result.message}"
     end
   end
 
@@ -61,7 +64,7 @@ class DirectoryUser
 
   def self.ldap_connect(username, password)
     ldap = Net::LDAP.new(
-      :host =>  "sea1-dc-2.synapsedev.com",
+      :host =>  "core-dc-1.synapsedev.com",
       :port => 636,
       :encryption => :simple_tls
     )
