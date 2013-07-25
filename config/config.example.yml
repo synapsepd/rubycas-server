@@ -524,6 +524,15 @@ log:
 
 #maximum_session_lifetime: 172800
 
+# Set custom cookie parameters such as max-age or secure
+
+#cookie_options:
+#  domain:
+#  path:
+#  max_age:
+#  expires:
+#  secure:
+#  httponly:
 
 # If you want the usernames entered on the login page to be automatically
 # downcased (converted to lowercase), enable the following option. When this

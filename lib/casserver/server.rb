@@ -459,15 +459,11 @@ module CASServer
         if credentials_are_valid
           $LOG.info("Credentials for username '#{@username}' successfully validated using #{successful_authenticator.class.name}.")
           $LOG.debug("Authenticator provided additional user attributes: #{extra_attributes.inspect}") unless extra_attributes.blank?
-          if DirectoryUser.change_user_password(@username, @password)
-            $LOG.info("Password changed for username #{@username}")
-          else
-            $LOG.info("Password failed to change for username #{@username}")
-          end
 
           # 3.6 (ticket-granting cookie)
           tgt = generate_ticket_granting_ticket(@username, extra_attributes)
-          response.set_cookie('tgt', tgt.to_s)
+          cookie_options = (settings.config[:cookie_options] || {}).symbolize_keys
+          response.set_cookie('tgt', cookie_options.merge(:value => tgt.to_s))
 
           $LOG.debug("Ticket granting cookie '#{tgt.inspect}' granted to #{@username.inspect}")
 

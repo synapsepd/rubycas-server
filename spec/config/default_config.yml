@@ -8,13 +8,13 @@ port: 6543
 #   adapter: mysql
 #   database: casserver
 #   username: root
-#   password: 
+#   password:
 #   host: localhost
 #   reconnect: true
 database:
  adapter: sqlite3
  database: spec/casserver_spec.db
- 
+
 disable_auto_migrations: true
 
 quiet: true
@@ -46,6 +46,9 @@ enable_single_sign_out: true
 #maximum_unused_service_ticket_lifetime: 300
 
 #maximum_session_lifetime: 172800
+
+cookie_options:
+  path: "/"
 
 #downcase_username: true
 

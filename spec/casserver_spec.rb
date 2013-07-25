@@ -34,6 +34,7 @@ describe 'CASServer' do
       click_button 'login-submit'
 
       page.should have_content("You have successfully logged in")
+      Capybara.current_session.driver.response.headers['Set-Cookie'].should match 'path=/'
     end
 
     it "fails to log in with invalid password" do
