@@ -15,7 +15,7 @@ gem "rake", "~> 10.0.4"
 group :development do
   gem 'capistrano-ext'
   gem 'capistrano_colors'
-  gem 'capistrano-rbenv'
+  gem "capistrano-rbenv", "~> 1.0.5"
   gem 'capistrano-unicorn', :require => false
   gem 'foreman'
   gem 'hipchat'
