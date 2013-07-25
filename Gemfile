@@ -1,7 +1,7 @@
 source "http://rubygems.org"
 
 gem 'appraisal'
-gem 'synapse-rubycas-server', "1.1.4"
+gem 'synapse-rubycas-server', "1.1.5.pre"
 gem "mysql2"
 gem 'activerecord-mysql2-adapter'
 gem "activerecord"
