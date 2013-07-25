@@ -96,7 +96,7 @@ DEPENDENCIES
   activesupport
   appraisal
   capistrano-ext
-  capistrano-rbenv
+  capistrano-rbenv (~> 1.0.5)
   capistrano-unicorn
   capistrano_colors
   foreman
