@@ -1,6 +1,6 @@
 $gemspec = Gem::Specification.new do |s|
   s.name     = 'synapse-rubycas-server'
-  s.version  = '1.1.4.pre'
+  s.version  = '1.1.5.pre'
   s.authors  = ["Matt Zukowski"]
   s.email    = ["matt@zukowski.ca"]
   s.homepage = 'https://github.com/synapsepd/rubycas-server.git'
