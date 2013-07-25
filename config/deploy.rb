@@ -16,7 +16,7 @@ set :deploy_via, :remote_cache
 set :use_sudo, false
 
 #rbenv
-set :rbenv_ruby_version, "1.9.3-p392"
+set :rbenv_ruby_version, "1.9.3-p194"
 
 set :bundle_flags, "--deployment --quiet --binstubs"
 set :bundler, "/home/#{user}/.rbenv/shims/bundle"
