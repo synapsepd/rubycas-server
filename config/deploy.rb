@@ -38,3 +38,13 @@ set :hipchat_announce, true # notify users?
 #nginx
 set :sudo_user, 'root'
 set :app_port, "80"
+
+namespace :deploy do
+  task :setup_private_files do
+    ["config.yml"].each do |file|
+      run "rm -fr #{release_path}/config/#{file}; true"
+      run "cd #{release_path}/config && ln -sf #{shared_path}/config/#{file} #{file}"
+    end
+  end
+end
+before "deploy:finalize_update", "deploy:setup_private_files"
