@@ -29,7 +29,6 @@ module CASServer
     config = HashWithIndifferentAccess.new(
       :maximum_unused_login_ticket_lifetime => 5.minutes,
       :maximum_unused_service_ticket_lifetime => 5.minutes, # CAS Protocol Spec, sec. 3.2.1 (recommended expiry time)
-      :cookie_options => {:expires => Time.now + 172800, :max_age => Time.now + 172800},
       :maximum_session_lifetime => 2.days, # all tickets are deleted after this period of time
       :log => {:file => 'casserver.log', :level => 'DEBUG'},
       :uri_path => ""
@@ -464,6 +463,7 @@ module CASServer
           # 3.6 (ticket-granting cookie)
           tgt = generate_ticket_granting_ticket(@username, extra_attributes)
           cookie_options = (settings.config[:cookie_options] || {}).symbolize_keys
+          cookie_options.merge(:expires => Time.now + 172800, :max_age => Time.now + 172800)
           response.set_cookie('tgt', cookie_options.merge(:value => tgt.to_s))
 
           $LOG.debug("Ticket granting cookie '#{tgt.inspect}' granted to #{@username.inspect}")
